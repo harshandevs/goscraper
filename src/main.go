@@ -51,11 +51,11 @@ func main() {
 	urls := os.Getenv("URL")
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     urls + ", http://localhost:243",
+		AllowOrigins:     "*",
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
 		AllowHeaders:     "Origin,Content-Type,Accept,X-CSRF-Token,Authorization",
 		ExposeHeaders:    "Content-Length",
-		AllowCredentials: true,
+		AllowCredentials: false,
 	}))
 
 	app.Use(limiter.New(limiter.Config{
